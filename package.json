@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Zhusufeng/water-walls/issues"
   },
-  "homepage": "https://github.com/Zhusufeng/water-walls#readme"
+  "homepage": "https://github.com/Zhusufeng/water-walls#readme",
+  "devDependencies": {
+    "jest-cli": "^22.1.4"
+  }
 }
