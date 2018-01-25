@@ -1,23 +1,29 @@
 const findMostWater = (heights) => {
-  // C: None
-  // const hash = {};
-  // let leftWall
-  // let rightWall
+  const hash = {};
+  let leftWall;
+  let rightWall;
 
-  // Iterate through heights
-  //   If index is 0, set leftWall
-  //   Find if heights[i] is greater than heights[leftWall] or end
-  //     If it is, save i as rightWall
-  //     let shorterWall equal to a call to findShorterWall
-  //     let sumOfBlocks equal to a call to countWaterBlocks
-  //     let key  = (leftWall + 1) + ' ' + (rightWall + 1);
-  //     hash[key] = sumOfBlocks 
-  //     leftWall = i
-  // Return findMostBlocks(hash)
+  for (let i = 0; i < heights.length; i++) {
+    if (i === 0) {
+      leftWall = 0;
+    }
+    if (heights[i] > heights[leftWall] || i === heights.length - 1) {
+      rightWall = i;
+      let shorterWall = findShorterWall(leftWall, rightWall, heights);
+      let sumOfBlocks = countWaterBlocks(leftWall, rightWall, shorterWall, heights);
+      let key = (leftWall + 1) + ' ' + (rightWall + 1);
+      hash[key] = sumOfBlocks;
+      leftWall = i;
+    }
+  }
+  return findMostBlocks(hash);
 };
 
 const findShorterWall = (leftWall, rightWall, heights) => {
-  // If heights[leftWall] is less than heights[rightWall] return leftWall, otherwise rightWall
+  if (heights[leftWall] < heights[rightWall]) {
+    return leftWall;
+  }
+  return rightWall;
 };
   
 const countWaterBlocks = (leftWall, rightWall, shorterWall, heights) => {
