@@ -98,6 +98,12 @@ const output3 = [];
 const input4 = [2, 1, 3, 4, 5];
 const output4 = [1, 3, 1];
 
+const input5 = [1];
+const output5 = [];
+
+const input6 = [1, 2];
+const output6 = [];
+
 ### Constraints
 N/A
 
