@@ -35,9 +35,11 @@ const countWaterBlocks = (leftWall, rightWall, shorterWall, heights) => {
 };
 
 const findMostBlocks = (hash) => {
-  // let max = null;
-  // Iterate through hash looking for largest value
-  //   If hash[key] > hash[max] or no max
-  //     max = key
-  // Return max.split(' ').concat([hash[max]]) 
+  let max = null;
+  for (key in hash) {
+    if (!max || hash[key] > hash[max]) {
+      max = key;
+    }
+  }
+  return max.split(' ').concat([hash[max]]);
 };
