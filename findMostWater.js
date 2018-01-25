@@ -11,8 +11,7 @@ const findMostWater = (heights) => {
       rightWall = i;
       let shorterWall = findShorterWall(leftWall, rightWall, heights);
       let sumOfBlocks = countWaterBlocks(leftWall, rightWall, shorterWall, heights);
-      hash[sumOfBlocks] = [(leftWall + 1), (rightWall + 1)]; 
-      // need to account if another set of walls has same sumOfBlocks
+      hash[leftWall + 1] = [(leftWall + 1), (rightWall + 1), sumOfBlocks]; 
       leftWall = i;
     }
   }
@@ -37,11 +36,11 @@ const countWaterBlocks = (leftWall, rightWall, shorterWall, heights) => {
 const findMostBlocks = (hash) => {
   let max = null;
   for (key in hash) {
-    if (!max || parseInt(key) > max) {
-      max = parseInt(key);
+    if (!max || hash[key][2] > hash[max][2]) {
+      max = key;
     }
   }
-  return hash[max].concat([max]);
+  return hash[max];
 };
 
 module.exports = findMostWater;
