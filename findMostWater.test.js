@@ -6,7 +6,7 @@ test('findMostWater works when right wall is higher', () => {
 });
 
 test('findMostWater works when left wall is higher', () => {
-  // expect(findMostWater([5, 1, 2, 3, 4, 3])).toEqual([1, 5, 6]); // not hitting 4
+  expect(findMostWater([5, 1, 2, 3, 4, 3])).toEqual([1, 5, 6]); // not hitting 4
 });
 
 test('findMostWater works when there is no wall', () => {
