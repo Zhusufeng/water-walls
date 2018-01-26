@@ -1,15 +1,29 @@
 body {
-  font-family: "Arial";
+  font-family: 'Arial';
 }
 
 .flex-container {
   display: flex;
+  height: 500px;
+  width: 700px;
   justify-content: center;
-  height: 700px;
-  align-items: center;
+  /*align-items: center;*/
+}
+
+.form-container {
+  text-align: center;
+}
+
+#heights-form {
+  display: inline-block;
+}
+
+#heights-form-input {
+  width: 300px;
 }
 
 #water-walls-table {
+  width: 100%;
   border: 1px solid #000;
 }
 
