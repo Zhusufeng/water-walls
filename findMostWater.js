@@ -9,24 +9,18 @@ const findMostWater = (heights) => {
     }
     if (heights[i] > heights[leftWall] || i === heights.length - 1) {
       rightWall = i;
-      let shorterWall = findShorterWall(leftWall, rightWall, heights);
-      let sumOfBlocks = countWaterBlocks(leftWall, rightWall, shorterWall, heights);
+      let sumOfBlocks = countWaterBlocks(leftWall, rightWall, heights);
       hash[leftWall + 1] = [(leftWall + 1), (rightWall + 1), sumOfBlocks]; 
       leftWall = i;
     }
   }
   return findMostBlocks(hash);
 };
-
-const findShorterWall = (leftWall, rightWall, heights) => {
-  if (heights[leftWall] < heights[rightWall]) {
-    return leftWall;
-  }
-  return rightWall;
-};
   
-const countWaterBlocks = (leftWall, rightWall, shorterWall, heights) => {
+const countWaterBlocks = (leftWall, rightWall, heights) => {
   let sumOfBlocks = 0;
+  let shorterWall = (heights[leftWall] < heights[rightWall]) ? leftWall : rightWall;
+
   for (let i = leftWall + 1; i < rightWall; i++) {
     sumOfBlocks += heights[shorterWall] - heights[i];
   }
