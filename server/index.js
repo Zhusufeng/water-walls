@@ -1,13 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const findMostWater = require('./findMostWater');
+const findMostWater = require('./actions/findMostWater');
 const app = express();
 
 const host = 'localhost';
 const port = 8234;
 
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/client'));
+app.use(express.static(__dirname + '/../client'));
 
 app.route('/render')
   .post(findMostWater);
