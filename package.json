@@ -2,8 +2,9 @@
   "name": "water-walls",
   "version": "1.0.0",
   "description": "A water walls problem",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
+    "start": "nodemon server/index.js",
     "test": "jest"
   },
   "repository": {
