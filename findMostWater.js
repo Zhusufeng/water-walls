@@ -27,7 +27,7 @@ const findShorterWall = (leftWall, rightWall, heights) => {
   
 const countWaterBlocks = (leftWall, rightWall, shorterWall, heights) => {
   let sumOfBlocks = 0;
-  for (let i = leftWall; i < rightWall; i++) {
+  for (let i = leftWall + 1; i < rightWall; i++) {
     sumOfBlocks += heights[shorterWall] - heights[i];
   }
   return sumOfBlocks;
@@ -36,6 +36,7 @@ const countWaterBlocks = (leftWall, rightWall, shorterWall, heights) => {
 const findMostBlocks = (hash) => {
   let max = null;
   for (key in hash) {
+    console.log(hash[key]);
     if (!max || hash[key][2] > hash[max][2]) {
       max = key;
     }
