@@ -1,5 +1,5 @@
 const findMostWater = (heights, leftWall = 0, rightWall = null, hash = {}) => {
-
+  if (!heights.length) return [];
   for (let i = 0; i < heights.length; i++) {
     if (heights[i] > heights[leftWall]) {
       rightWall = i;
