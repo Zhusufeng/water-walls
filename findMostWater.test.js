@@ -13,5 +13,9 @@ test('findMostWater works when left wall is higher', () => {
 test('findMostWater works when there is no wall', () => {
   expect(findMostWater([5, 4, 3, 2, 1])).toEqual([]); 
   expect(findMostWater([1, 2])).toEqual([]); 
-  expect(findMostWater([1])).toEqual([]); // not passing
+  expect(findMostWater([1])).toEqual([]);
+});
+
+test('findMostWater works when given empty array', () => {
+  expect(findMostWater([])).toEqual([]);
 });
