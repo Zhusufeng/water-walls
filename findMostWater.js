@@ -32,6 +32,7 @@ const findAnotherWall = (hash, leftWall, heights, anotherWall = null) => {
   console.log(anotherWall);
   findAnotherWall(hash, anotherWall, heights);
 };
+// Mesh findMostWater and findAnotherWall into 1 function...
   
 const countWaterBlocks = (leftWall, rightWall, heights, hash) => {
   let sumOfBlocks = 0;
