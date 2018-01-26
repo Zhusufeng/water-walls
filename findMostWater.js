@@ -24,6 +24,8 @@ const findMostWater = (heights) => {
       hash[leftWall + 1] = [(leftWall + 1), (secondaryWall + 1), sumOfBlocks];
 
       // Repeat in case there is another!!!
+
+      // Reworking after 5pm on functionality
     }
   }
   return findMostBlocks(hash);
