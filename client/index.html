@@ -2,11 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" src="">
+    <link rel="stylesheet" href="public/css/main.css">
     <title>Water Walls</title>
   </head>
   <body>
-    <div class="flex container">
+    <div class="flex-container">
       <div>
         <h1>Water Walls</h1>
         <form id="heights-form">
@@ -14,12 +14,9 @@
             Please enter a comma-separated list of integers to represent wall heights.
           </p>
           <input type="text" name="heights-form-input" id="heights-form-input" placeholder="">
-          <input type="submit" name="heights-form-submit" id="heights-form-submit" value="Submit">
+          <input type="submit" name="heights-form-submit" id="heights-form-submit" value="Render water walls">
         </form>
-        <div>
-          <table id="water-walls-table">
-            
-          </table>
+        <div id="table-container">
         </div>
       </div>
     </div>
