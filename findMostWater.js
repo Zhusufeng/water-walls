@@ -44,7 +44,8 @@ const countWaterBlocks = (leftWall, rightWall, heights, hash) => {
   if (sumOfBlocks < 0) {
     sumOfBlocks = 0;
   }
-  saveToHash(leftWall, rightWall, sumOfBlocks, hash);
+  // saveToHash(leftWall, rightWall, sumOfBlocks, hash);
+  hash[leftWall + 1] = [(leftWall + 1), (rightWall + 1), sumOfBlocks];
   return sumOfBlocks;
 };
 
@@ -59,9 +60,9 @@ const findMostBlocks = (hash) => {
   return hash[max][2] > 0 ? hash[max] : [];
 };
 
-const saveToHash = (leftWall, rightWall, sumOfBlocks, hash) => {
-  hash[leftWall + 1] = [(leftWall + 1), (rightWall + 1), sumOfBlocks];
-  return hash; 
-}
+// const saveToHash = (leftWall, rightWall, sumOfBlocks, hash) => {
+//   hash[leftWall + 1] = [(leftWall + 1), (rightWall + 1), sumOfBlocks];
+//   return hash; 
+// }
 
 module.exports = findMostWater;
