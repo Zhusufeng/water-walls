@@ -7,11 +7,23 @@ const findMostWater = (heights) => {
     if (i === 0) {
       leftWall = 0;
     }
-    if (heights[i] > heights[leftWall] || i === heights.length - 1) {
+    if (heights[i] > heights[leftWall]) {
       rightWall = i;
       let sumOfBlocks = countWaterBlocks(leftWall, rightWall, heights);
       hash[leftWall + 1] = [(leftWall + 1), (rightWall + 1), sumOfBlocks]; 
       leftWall = i;
+    } else if (i === heights.length - 1) {
+      // find second highest point in stretch & separate it out
+      let secondaryWall;
+      for (let j = leftWall + 1; j < heights.length; j++) {
+        if (!secondaryWall) {
+          secondaryWall = j;
+        } else if (heights[j] > heights[secondaryWall]) {
+          secondaryWall = j; 
+        }
+      }
+      let sumOfBlocks = countWaterBlocks(leftWall, secondaryWall, heights);
+      hash[leftWall + 1] = [(leftWall + 1), (secondaryWall + 1), sumOfBlocks];
     }
   }
   return findMostBlocks(hash);
