@@ -1,12 +1,6 @@
-const findMostWater = (heights) => {
-  const hash = {};
-  let leftWall;
-  let rightWall;
+const findMostWater = (heights, leftWall = 0, rightWall = null, hash = {}) => {
 
   for (let i = 0; i < heights.length; i++) {
-    if (i === 0) {
-      leftWall = 0;
-    }
     if (heights[i] > heights[leftWall]) {
       rightWall = i;
       let sumOfBlocks = countWaterBlocks(leftWall, rightWall, heights, hash);
@@ -14,19 +8,23 @@ const findMostWater = (heights) => {
       leftWall = i;
     } else if (i === heights.length - 1) {
       // when left wall is higher, find second highest point
-      let secondaryWall;
-      for (let j = leftWall + 1; j < heights.length; j++) {
-        if (!secondaryWall || heights[j] > heights[secondaryWall]) {
-          secondaryWall = j; 
-        }
-      }
-      let sumOfBlocks = countWaterBlocks(leftWall, secondaryWall, heights, hash);
-
-      // Repeat in case there is another!!!
-
+      findAnotherWall(hash, leftWall, heights);
     }
   }
   return findMostBlocks(hash);
+};
+
+const findAnotherWall = (hash, leftWall, heights, anotherWall = null) => {
+  for (let j = leftWall + 1; j < heights.length; j++) {
+    if (!anotherWall || heights[j] > heights[anotherWall]) {
+      anotherWall = j; 
+    }
+  }
+  let sumOfBlocks = countWaterBlocks(leftWall, anotherWall, heights, hash);
+  if (anotherWall === heights.length - 1) {
+    return;
+  }
+  findAnotherWall(hash, anotherWall, heights);
 };
   
 const countWaterBlocks = (leftWall, rightWall, heights, hash) => {
