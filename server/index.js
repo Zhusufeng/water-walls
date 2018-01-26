@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const findMostWater = require('./actions/findMostWater');
+const processInput = require('./actions/processInput');
 const app = express();
 
 const host = 'localhost';
@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + '/../client'));
 
 app.route('/render')
-  .post(findMostWater);
+  .post(processInput);
 
 app.listen(port, () => {
   console.log(`Server is listening on http://${host}:${port}`);
