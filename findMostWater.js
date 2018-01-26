@@ -15,7 +15,12 @@ const findMostWater = (heights, leftWall = 0, rightWall = null, hash = {}) => {
 };
 
 const findAnotherWall = (hash, leftWall, heights, anotherWall = null) => {
+  if (!heights[leftWall + 1]) {
+    let sumOfBlocks = countWaterBlocks(leftWall, anotherWall, heights, hash);
+    return;
+  }
   for (let j = leftWall + 1; j < heights.length; j++) {
+    console.log(heights[j]);
     if (!anotherWall || heights[j] > heights[anotherWall]) {
       anotherWall = j; 
     }
@@ -24,6 +29,7 @@ const findAnotherWall = (hash, leftWall, heights, anotherWall = null) => {
   if (anotherWall === heights.length - 1) {
     return;
   }
+  console.log(anotherWall);
   findAnotherWall(hash, anotherWall, heights);
 };
   
