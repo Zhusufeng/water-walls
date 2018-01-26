@@ -7,11 +7,11 @@ test('findMostWater works when right wall is higher', () => {
 
 test('findMostWater works when left wall is higher', () => {
   expect(findMostWater([5, 1, 2, 3, 4, 3])).toEqual([1, 5, 6]); 
-  expect(findMostWater([1, 1, 6, 1, 5, 1, 1, 1, 1, 1, 1, 2, 1, 1, 4]).toEqual([5, 15, 26]));
+  expect(findMostWater([1, 1, 6, 1, 5, 1, 1, 1, 1, 1, 1, 2, 1, 1, 4])).toEqual([5, 15, 26]);
 });
 
 test('findMostWater works when there is no wall', () => {
   expect(findMostWater([5, 4, 3, 2, 1])).toEqual([]); 
-  expect(findMostWater([1])).toEqual([]); 
   expect(findMostWater([1, 2])).toEqual([]); 
+  expect(findMostWater([1])).toEqual([]); // not passing
 });
