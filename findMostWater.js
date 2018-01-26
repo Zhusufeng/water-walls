@@ -24,6 +24,11 @@ const countWaterBlocks = (leftWall, rightWall, heights) => {
   for (let i = leftWall + 1; i < rightWall; i++) {
     sumOfBlocks += heights[shorterWall] - heights[i];
   }
+
+  if (sumOfBlocks < 0) {
+    sumOfBlocks = 0;
+  }
+
   return sumOfBlocks;
 };
 
@@ -35,7 +40,7 @@ const findMostBlocks = (hash) => {
       max = key;
     }
   }
-  return hash[max];
+  return hash[max][2] > 0 ? hash[max] : [];
 };
 
 module.exports = findMostWater;
