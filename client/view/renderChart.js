@@ -5,6 +5,8 @@ const renderChart = (input, output) => {
       tableContainer.removeChild(tableContainer.firstChild);
   }
 
+  // if input is empty...
+
   const maxHeight = findMaxHeight(input) + 1;
   console.log('This is height of our chart', maxHeight);
 
