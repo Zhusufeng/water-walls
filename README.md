@@ -1,9 +1,29 @@
 # Water Walls
 
+## Part 2
 
-## Main Logic for Part 1
+### Description
+A user can enter a comma-separated list of integers in the input, and these integers represent wall heights. 
 
-## Description 
+When the list is submitted, the app will generate a visual chart of the walls. If water is trapped between walls, this will be visualized with blue blocks. The walls holding the most water will be inked in black.
+
+For implementation, the back end returns only data about where the water lies. The front end will render the walls and water.
+
+### Installation
+To install, use
+```javascript
+npm install
+```
+
+To test, use
+```javascript
+npm test
+```
+
+## Main Logic for Part 1 
+This is now out-of-date to generate data for Part.
+
+### Description 
 A series of wall heights are represented by integers. Determine which two walls have the most water trapped between them, and exactly how much water that is.
 Given heights of [5, 3, 7, 2, 6, 4, 5, 9, 1, 2], your function outputs [3, 8, 11]. I.e., between wall #3 and wall #8, there are 11 blocks of water.
 
