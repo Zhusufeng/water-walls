@@ -1,7 +1,7 @@
 const postData = (e) => {
   e.preventDefault();
 
-  const input = document.getElementById('heights-form-input').value;
+  const input = cleanUpInput(document.getElementById('heights-form-input').value);
   console.log(input);
 
   return fetch('/render', {
