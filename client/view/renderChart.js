@@ -31,10 +31,10 @@ const renderChart = (input, output) => {
     chartRow.appendChild(cell);
   }
 
-  // Create rows of maxHeight + 1
-  // Each row has an id starting with maxHeight + 1 and decrement
-  // Going row by row, using the id
-    // 
+  // input is [1, 5, 3, 5, 1]
+  // output is [2, 4, 2]
+  // if input[output[0] - 1] or input[output[1] - 1] should be ' black-block' (not gray-block)
+  // all blue blocks need to be shown!!!
 
   // when output is []
 
