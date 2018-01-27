@@ -16,20 +16,19 @@ const renderChart = (input, output) => {
   for (let i = 0; i < input.length; i++) {
     // Create cell (which will be columns)
     let cell = document.createElement('td');
-    cell.className = 'flex-td';
 
-    for (let j = 0; j < maxHeight; j++) {
+    for (let j = maxHeight; j > 0; j--) {
       let block = document.createElement('div');
-      block.className = 'block';
+      block.className += 'block';
 
       if (input[i] >= j) {
-        block.className += 'gray-block';
+        block.className += ' gray-block';
       }
 
       cell.appendChild(block);
     }
 
-    charRow.appendChild(cell);
+    chartRow.appendChild(cell);
   }
 
   // Create rows of maxHeight + 1
