@@ -49,13 +49,21 @@ const countWaterBlocks = (leftWall, rightWall, heights, hash) => {
 
 const findMostBlocks = (hash) => {
   let max = null;
+  console.log('hash is', hash);
   for (key in hash) {
     console.log(hash[key]);
     if (!max || hash[key][2] > hash[max][2]) {
       max = key;
     }
   }
-  return hash[max][2] > 0 ? hash[max] : [];
+
+  if (hash[max][2] > 0) {
+    hash.most = hash[max];
+  } else {
+    hash.most = [];
+  }
+
+  return hash;
 };
 
 module.exports = findMostWater;
