@@ -22,25 +22,24 @@ body {
   width: 300px;
 }
 
-#water-walls-table {
-  width: 100%;
-  border: 1px solid #000;
+.flex-td {
+  display: flex;
 }
 
-td {
+.block {
   border: 1px solid #ccc;
   height: 10px;
   width: 10px;
 }
 
-#gray-square {
+.gray-block {
   background-color: #d3d3d3;
 }
 
-#blue-square {
+.blue-block {
   background-color: #0ff;
 }
 
-#black-square {
+.black-block {
   background-color: #000;
 }
