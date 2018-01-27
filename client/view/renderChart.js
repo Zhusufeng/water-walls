@@ -5,6 +5,8 @@ const renderChart = (input, output) => {
       tableContainer.removeChild(tableContainer.firstChild);
   }
 
+  const maxHeight = findMaxHeight(input);
+  console.log(maxHeight);
 
   // Find max number (maxHeight) in input
 
@@ -16,7 +18,7 @@ const renderChart = (input, output) => {
         // Add blocks
         // if input[i] (6) >= j
           // Add class gray
-         
+
 
 
 
