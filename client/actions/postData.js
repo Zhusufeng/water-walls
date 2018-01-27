@@ -16,6 +16,7 @@ const postData = (e) => {
   })
   .then(data => {
     console.log(data);
+    renderChart(input, data.output);
     heightsForm.reset();
   });
 };
