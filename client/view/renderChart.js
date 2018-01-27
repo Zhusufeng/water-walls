@@ -34,9 +34,13 @@ const renderChart = (input, output) => {
   }
 
   // input is [1, 5, 3, 5, 1]
-  // output is [2, 4, 2]
-  // if input[output[0] - 1] or input[output[1] - 1] should be ' black-block' (not gray-block)
-  // all blue blocks need to be shown!!!
+  // output is 
+    // 1: [1, 2, 0] 
+    // 2: [2, 4, 2] If output[key][2] > 0, add blue
+    // 4: [4, 5, 0]
+    // most: [2, 4, 2] If key === most, output[key][0] and output[key][1], black blocks
+
+
 
   // when output is []
 
