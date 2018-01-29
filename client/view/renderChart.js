@@ -33,6 +33,8 @@ const renderChart = (input, output) => {
     chartRow.appendChild(cell);
   }
 
+  console.log(chartRow.children[0].children);
+  console.log(chartRow.children[0].children[0].className);
   // input is [1, 5, 3, 5, 1]
   // output is 
     // 1: [1, 2, 0] 
@@ -48,13 +50,37 @@ const renderChart = (input, output) => {
     // hash[key][1] = rightWall-1
 
   for (let key in output) {
-    let shorterWall = (input[leftWall] < input[rightWall]) ? leftWall : rightWall;
-    for (let i = output[key][0] - 1; i < output[key][1]; i++) {
-      let numOfBlueBlocks = input[shorterWall] - input[i];
+    console.log(output[key]);
+    if (output[key][2] > 0 && key !== 'most') {
+      console.log(' i am inside ');
+      let shorterWall = (input[output[key][0]] < input[output[key][1]]) ? output[key][0] - 1 : output[key][1] - 1;
+      console.log('shorterWall is index ', shorterWall);
+      for (let i = output[key][0]; i < output[key][1] - 1; i++) {
+        console.log('i is', i);
+        console.log('input[shorterWall] is', input[shorterWall]);
+        console.log('input[i] is', input[i]);
+
+        let numOfBlueBlocks = input[shorterWall] - input[i];
+        console.log('numOfBlueBlocks is ', numOfBlueBlocks);
+        // input[3] - input[2]
+        // 5 - 3
+        // numo0fBlueBlocks = 2
+
+        // i is the column/wall we want to add blue blocks to
+
+        // Iterate through td's children...
+
+        console.log('maxHeight is ', maxHeight);
+        for (let j = maxHeight; j > 0; j--) {
+          console.log('j is', j);
+          if (j > input[i] && j <= input[i] + numOfBlueBlocks) {
+            console.log(chartRow.children[i].children[j].className);
+            chartRow.children[i].children[j].className += ' blue-block';
+          }
+        }
+      }
     }
   }
-
-
 
   // when output is []
 
