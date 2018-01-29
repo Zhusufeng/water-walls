@@ -71,12 +71,22 @@ const renderChart = (input, output) => {
         // Iterate through td's children...
 
         console.log('maxHeight is ', maxHeight);
-        for (let j = maxHeight; j > 0; j--) {
+        for (let j = 0; j < maxHeight; j++) {
           console.log('j is', j);
-          if (j > input[i] && j <= input[i] + numOfBlueBlocks) {
+
+          // if (j === 1) {
+          //   chartRow.children[i].children[j].className += ' blue-block';
+          // }
+          console.log('input[i]', input[i]);
+
+
+          if (j < input[i] && j >= input[i] - numOfBlueBlocks) {
+            console.log('I am inside if statement');
             console.log(chartRow.children[i].children[j].className);
             chartRow.children[i].children[j].className += ' blue-block';
           }
+
+          // needs to be colored when j is 1 and 2
         }
       }
     }
