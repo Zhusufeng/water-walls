@@ -16,6 +16,7 @@ body {
 
 #heights-form {
   display: inline-block;
+
 }
 
 #heights-form-input {
@@ -23,7 +24,8 @@ body {
 }
 
 #table-container {
-
+  display: flex;
+  justify-content: center;
 }
 
 table {
