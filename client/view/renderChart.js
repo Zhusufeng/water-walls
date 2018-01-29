@@ -26,14 +26,19 @@ const renderChart = (input, output) => {
       if (input[i] >= j) {
         block.className += ' gray-block';
       }
+
+      if (i === 0) {
+        let number = document.createTextNode(j); 
+        // add the text node to the newly created div
+        block.appendChild(number);  
+      }
       cell.appendChild(block);
     }
     chartRow.appendChild(cell);
   }
 
-
+  // Add blue blocks in correct ranges
   for (let key in output) {
-    console.log(output[key]);
     if (output[key][2] > 0 && key !== 'most') {
       let shorterWall = (input[output[key][0] - 1] < input[output[key][1] - 1]) ? output[key][0] - 1 : output[key][1] - 1;
       for (let i = output[key][0]; i < output[key][1] - 1; i++) {
@@ -49,6 +54,7 @@ const renderChart = (input, output) => {
       }
     }
   }
+  // Add black blocks in correct ranges
 
   chart.appendChild(chartRow);
   tableContainer.appendChild(chart);
