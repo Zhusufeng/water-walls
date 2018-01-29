@@ -39,8 +39,8 @@ const renderChart = (input, output) => {
   for (let key in output) {
     console.log(output[key]);
     if (output[key][2] > 0 && key !== 'most') {
-      console.log(' i am inside ');
-      let shorterWall = (input[output[key][0]] < input[output[key][1]]) ? output[key][0] - 1 : output[key][1] - 1;
+      console.log('i am inside ');
+      let shorterWall = (input[output[key][0] - 1] < input[output[key][1] - 1]) ? output[key][0] - 1 : output[key][1] - 1;
       console.log('shorterWall is index ', shorterWall);
       for (let i = output[key][0]; i < output[key][1] - 1; i++) {
         console.log('i is', i);
@@ -50,13 +50,16 @@ const renderChart = (input, output) => {
         let numOfBlueBlocks = input[shorterWall] - input[i];
         console.log('numOfBlueBlocks is ', numOfBlueBlocks);
 
+        let bottomIndex = maxHeight - input[i];
+        let topIndex = maxHeight - (input[i] + numOfBlueBlocks);
+
+        console.log(`bottomIndex: ${bottomIndex} and topIndex: ${topIndex}`);
+
         for (let j = 0; j < maxHeight; j++) {
           console.log('j is', j); // 0 1 2 3 4 5...
-
           console.log('input[i]', input[i]);
 
-
-          if (j < (maxHeight - input[i]) && (j >= maxHeight - (input[i] + numOfBlueBlocks))) {
+          if (j < bottomIndex && j >= topIndex){
             console.log('I am inside if statement');
             console.log(chartRow.children[i].children[j].className);
             chartRow.children[i].children[j].className += ' blue-block';
